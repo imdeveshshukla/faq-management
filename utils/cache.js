@@ -9,6 +9,9 @@ const cache = {
   async set(key, value, ttl = 3600) {
     await redis.set(key, JSON.stringify(value), 'EX', ttl);
   },
+  async del(key) {
+    await redis.del(key);
+  }
 };
 
 module.exports = cache;

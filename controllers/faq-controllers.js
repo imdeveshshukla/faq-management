@@ -54,13 +54,13 @@ const faqController = {
         const faq = new FAQ({ question, answer, translations });
         await faq.save();
         
-
+        await cache.del('faqs:*');
         res.json(faq);
     },
 
     async deleteFAQ(req, res) {
         await FAQ.findByIdAndDelete(req.params.id);
-        
+        await cache.del('faqs:*');
         res.json({ message: 'FAQ deleted' });
     }
 };
