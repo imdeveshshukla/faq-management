@@ -8,7 +8,9 @@ async function translateText(text, targetLang) {
     const [translation] = await translate.translate(text, targetLang);
     return translation;
   } catch (error) {
-    console.error('Translation error:', error);
+    console.error('Language Translation error:', error?.message);
+    console.log("-----check env file and also check that GOOGLE_TRANSLATION_API_KEY is correct-----")
+    console.log("\n");
     return text;
   }
 }
