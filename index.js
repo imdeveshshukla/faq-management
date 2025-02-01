@@ -1,14 +1,15 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const faqRoutes = require('./routes/faq-routes.js');
-require('./config/db');
+import express from 'express';
+import dotenv from 'dotenv';
+import router from './routes/faq-routes.js';
+import './config/db.js'; 
+
 
 dotenv.config();
-const app = express();
+export const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use('/api/faqs', faqRoutes);
+app.use('/api/faqs', router);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

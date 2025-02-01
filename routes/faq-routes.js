@@ -1,5 +1,5 @@
-const express = require('express');
-const faqController = require('../controllers/faq-controllers');
+import express from 'express';
+import faqController from '../controllers/faq-controllers.js';
 
 const router = express.Router();
 
@@ -8,4 +8,4 @@ router.post('/', faqController.createFAQ);
 router.delete('/:id', faqController.deleteFAQ);
 
 
-module.exports = router;
+export default router;

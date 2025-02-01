@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 const { Schema } = mongoose;
 
 const faqSchema = new Schema({
@@ -15,4 +16,5 @@ faqSchema.methods.getTranslation = function (lang) {
     return this.translations[lang] || { question: this.question, answer: this.answer };
 };
 
-module.exports = mongoose.model('FAQ', faqSchema);
+// Export as ES module
+export default mongoose.model('FAQ', faqSchema);
